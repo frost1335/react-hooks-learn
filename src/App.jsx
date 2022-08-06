@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { FunctionContextComponent } from "./FunctionContextComponent";
+import { ThemeProvider } from "./ThemeContext";
 
 // useState lesson
 // const App = () => {
@@ -69,22 +71,15 @@ import React, { useEffect, useState } from "react";
 
 // useContext lesson
 
-export const ThemeContext = React.createContext()
 
 const App = () => {
-  const [darkTheme, setDarkTheme] = useState(true);
-
-  function toggleTheme() {
-    setDarkTheme((prevDarkTheme) => !prevDarkTheme);
-  }
-
-  return <div>
-<ThemeContext.Provider value={darkTheme} >
-  <button onClick={toggleTheme}>Toggle Theme</button>
-
-  
-</ThemeContext.Provider>
-  </div>;
+  return (
+    <div>
+      <ThemeProvider>
+        <FunctionContextComponent />
+      </ThemeProvider>
+    </div>
+  );
 };
 
 export default App;
